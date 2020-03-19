@@ -26,6 +26,9 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UPROPERTY(EditAnywhere)
+		class UInteractionComponent* Interactor;
+
 	UFUNCTION()
 		void MoveForward(float Value);
 

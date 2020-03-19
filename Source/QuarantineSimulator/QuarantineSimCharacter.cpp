@@ -4,6 +4,7 @@
 #include "QuarantineSimCharacter.h"
 #include "Components/InputComponent.h"
 #include "Camera/CameraComponent.h"
+#include "InteractionComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/Character.h"
@@ -18,6 +19,8 @@ AQuarantineSimCharacter::AQuarantineSimCharacter()
 	CameraSpringArm->SetupAttachment(RootComponent);
 	CharacterCamera = CreateDefaultSubobject<UCameraComponent>("Camera");
 	CharacterCamera->SetupAttachment(CameraSpringArm);
+
+	Interactor = CreateDefaultSubobject<UInteractionComponent>("Grabber");
 	//NOTE: I had to manually enable use pawn controller movement, should put that in code
 	//NOTE: Set Cancrouch in bp_character in nav mesh
 
@@ -53,6 +56,8 @@ void AQuarantineSimCharacter::SetupPlayerInputComponent(UInputComponent* PlayerI
 
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
+
+
 
 }
 
