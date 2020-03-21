@@ -60,7 +60,7 @@ void UInteractionComponent::TickComponent(
 	GEngine->AddOnScreenDebugMessage(1, 4.0f, FColor::Green, *msg);
 	//------------------------------------------------------------------------------------------------------------------------------
 	FVector LineTraceEnd = PlayerViewPointLoc + PlayerViewPointRot.Vector() * Reach;
-	DrawDebugLine(GetWorld(), PlayerViewPointLoc, LineTraceEnd, FColor::Red, false,0.f,0.f,5.0f );
+	//DrawDebugLine(GetWorld(), PlayerViewPointLoc, LineTraceEnd, FColor::Red, false,0.f,0.f,5.0f );
 	FHitResult Hit;
 
 	FCollisionQueryParams TraceParams(FName(TEXT("")), false, GetOwner());
