@@ -6,7 +6,11 @@
 #include "GameFramework/Character.h"
 #include "QuarantineSimCharacter.generated.h"
 
+class USpringArmComponent;
+class UCameraComponent;
+
 UCLASS()
+
 class QUARANTINESIMULATOR_API AQuarantineSimCharacter : public ACharacter
 {
 	GENERATED_BODY()
@@ -15,11 +19,11 @@ public:
 	// Sets default values for this character's properties
 	AQuarantineSimCharacter();
 
-	UPROPERTY(EditAnywhere)
-		class UCameraComponent* CharacterCamera;
+	UPROPERTY(EditAnywhere, Category = Camera)
+		UCameraComponent* CharacterCamera;
 
-	UPROPERTY(EditAnywhere)
-		class USpringArmComponent* CameraSpringArm;
+	UPROPERTY(EditAnywhere, Category = Camera)
+		USpringArmComponent* CameraSpringArm;
 
 
 protected:
@@ -34,6 +38,13 @@ protected:
 
 	UFUNCTION()
 		void MoveRight(float Value);
+
+	UFUNCTION()
+		void MyTurn(float Value);
+
+	UFUNCTION()
+		void MyLookUp(float Value);
+
 
 	void StartCrouching();
 	void EndCrouching();
